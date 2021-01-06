@@ -43,6 +43,7 @@ export const Films = () => {
                 <div>
                     {showSpinner ?
                         <div>
+                            <h1>Loading...</h1>
                             <Spinner />
                         </div>
                         :

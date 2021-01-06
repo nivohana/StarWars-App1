@@ -34,14 +34,20 @@ export const Film = ({ title, producer, id }) => {
             { clicked ?
                 <div> 
                     <h3> {title} </h3>
-                    <div> {producer} </div>
+                    <div>
+                        Producer:<br></br>
+                        {producer}
+                    </div>
                         <br></br>
                     <CheckCircleOutlineIcon style={{ color: green[500] }} />
                 </div>
                 :
                 <div> 
                     <h3> {title} </h3>                    
-                    <p> {producer} </p>
+                    <div>
+                        Producer:<br></br>
+                        {producer}
+                    </div>
                 </div>
             }
                 
