@@ -1,0 +1,16 @@
+.film {
+    padding: 1rem;
+    width: 220px;
+    height: 150px;
+    border-radius: 5px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.26);
+    display: inline-table;
+    margin: 20px;
+ 
+}
+
+.film:hover {
+   outline: 2px solid;
+
+}
+    

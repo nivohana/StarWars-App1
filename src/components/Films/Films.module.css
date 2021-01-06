@@ -1,0 +1,9 @@
+.films {
+    display: inline-block;
+    box-sizing: border-box; 
+    align-items: center;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
