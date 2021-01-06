@@ -31,8 +31,7 @@ export const Film = ({ title, producer, id }) => {
 
     return (
         <div className={styles.film} onClick={clickedHandler}>
-            {console.log(clicked)}
-            { clicked?
+            { clicked ?
                 <div> 
                     <h3> {title} </h3>
                     <div> {producer} </div>

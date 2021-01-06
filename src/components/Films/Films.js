@@ -7,7 +7,10 @@ import axios from 'axios';
 
 export const Films = () => {
     const [filmsObject, setFilmsObject] = useState([]);
+    const [error, setError] = useState(false);
     const [showSpinner, setShowSpinner] = useState(true);
+
+
 
 
     useEffect(() => {
@@ -26,25 +29,26 @@ export const Films = () => {
                 setShowSpinner(false)
             })
             .catch(err => {
-                alert(err.message)
+                // alert(err.message)
                 setShowSpinner(false)
+                setError(true);
             })
     }, [])
 
     return (
         <div className={styles.films}>
-            {showSpinner ?
-                <div>
-                    <Spinner />
-                </div>
+            {error ?
+                <h1> Something Went Wrong...</h1>
                 :
                 <div>
-                    {(filmsObject.length === 0) ?
-                        <h1> No movie in the site </h1>
+                    {showSpinner ?
+                        <div>
+                            <Spinner />
+                        </div>
                         :
                         <div>
-                            <h1> Top Star Wars Movies</h1>
-                            <h3> choose the one you like...</h3>
+                            <h1>Top Star Wars Movies</h1>
+                            <h3>Choose the one you like...</h3>
                             {filmsObject.map(film => <Film
                                 key={film.id}
                                 id={film.id}
@@ -57,6 +61,5 @@ export const Films = () => {
                 </div>
             }
         </div>
-
     );
 }
