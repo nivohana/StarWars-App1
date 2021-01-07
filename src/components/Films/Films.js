@@ -4,15 +4,16 @@ import styles from './Films.module.css';
 import { Spinner } from '../UI/Spinner';
 import axios from 'axios';
 
-
 export const Films = () => {
+    //setting the List of the film's object
     const [filmsObject, setFilmsObject] = useState([]);
+    //Handeling errors 
     const [error, setError] = useState(false);
+    //Handeling the spinner state to be On/Off
     const [showSpinner, setShowSpinner] = useState(true);
 
-
-
-
+    //Getting the data from the StarWars API and save it with the useState method
+    //to our array of films
     useEffect(() => {
         axios.get('https://swapi.dev/api/films/')
             .then(res => {
@@ -28,12 +29,13 @@ export const Films = () => {
                 setFilmsObject(filmsObject);
                 setShowSpinner(false)
             })
+            // Handeling errors
             .catch(err => {
-                // alert(err.message)
                 setShowSpinner(false)
                 setError(true);
             })
     }, [])
+
 
     return (
         <div className={styles.films}>

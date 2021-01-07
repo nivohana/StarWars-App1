@@ -4,13 +4,14 @@ import { green } from '@material-ui/core/colors';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
 
-
 export const Film = ({ title, producer, id }) => {
-    const [clicked, setClicked] = useState(false);
+    //initializing the film box status, On/Off
+    const [status, setStatus] = useState(false);
 
+    //getting the unique data from the browser local storage
     useEffect(()=> {
         const localData = localStorage.getItem(`selectedFilm_${id}`);
-        setClicked(() => {
+        setStatus(() => {
             if(localData == null){
                 return false
             }else {
@@ -19,19 +20,21 @@ export const Film = ({ title, producer, id }) => {
         });
     },[]);
 
+    //setting the unique data to the browser local storage,
+    //calling the useEffect whenever the box status changes
     useEffect(() => {
-        localStorage.setItem(`selectedFilm_${id}`, clicked)
-    },[clicked]);
+        localStorage.setItem(`selectedFilm_${id}`, status)
+    },[status]);
 
       
-    const clickedHandler= () => {
-        setClicked(prev => !prev);
+    const statusHandler= () => {
+        setStatus(prev => !prev);
     }
 
 
     return (
-        <div className={styles.film} onClick={clickedHandler}>
-            { clicked ?
+        <div className={styles.film} onClick={statusHandler}>
+            { status ?
                 <div> 
                     <h3> {title} </h3>
                     <div>
